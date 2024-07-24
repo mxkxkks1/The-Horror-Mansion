@@ -1,0 +1,16 @@
+-- Game : https://www.roblox.com/games/522527978/The-Horror-Mansion
+
+local rs = game:GetService("RunService")
+getgenv().chgPnts = function()
+    local plr = game:GetService("Players").LocalPlayer
+    local ls = plr:FindFirstChild("leaderstats")
+    if ls then
+        local pts = ls:FindFirstChild("Points")
+        if pts and pts:IsA("IntValue") then
+            if pts.Value ~= 9e9 then
+                pts.Value = 9e9
+            end
+        end
+    end
+end
+rs.RenderStepped:Connect(chgPnts)
